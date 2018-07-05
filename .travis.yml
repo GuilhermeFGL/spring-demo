@@ -1,6 +1,12 @@
 language: java
 jdk: oraclejdk8
 
+# mysql
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE demo;'
+
 # git strips the wrapper jar file so we have to force its download during the build
 install:
   - mvn -N io.takari:maven:wrapper
